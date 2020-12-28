@@ -1,6 +1,6 @@
 import React from 'react';
 
-const person = (props) => {
+const veggie = (props) => {
     return (
         <div>
             <p onClick={props.click}>I am {props.name} and my color is {props.color} - Price : {props.price}</p>
@@ -9,4 +9,4 @@ const person = (props) => {
     );
 }
 
-export default person;
+export default veggie;

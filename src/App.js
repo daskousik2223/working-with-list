@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 //import React, { useState } from 'react';
 import './App.css';
-import MyPerson from './Person/Person.js';
+import MyPerson from './Veggies/Veggie.js';
 
 
-//Class method
+//Class method 
 
 class App extends Component {
 
@@ -51,7 +51,11 @@ class App extends Component {
     //  Elegant way to use conditional statements
     let veggiesList = null;
     if (this.state.showVeggies) {
-      veggiesList = <div >
+      veggiesList = (
+      <div>
+        {this.state.veggies.map(veggie => {
+          return
+        })}
         <MyPerson color={this.state.veggies[0].color}
           name={this.state.veggies[0].name}
           price={this.state.veggies[0].price}
