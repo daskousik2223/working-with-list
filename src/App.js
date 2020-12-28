@@ -4,11 +4,7 @@ import './App.css';
 import MyPerson from './Person/Person.js';
 
 
-<<<<<<< HEAD
 //Class method
-=======
-//Class method 
->>>>>>> 0e095fa8173608dce75a2387238f7e29317eb57c
 
 class App extends Component {
 
