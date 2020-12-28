@@ -14,7 +14,8 @@ class App extends Component {
       { name: 'cabbage', color: 'purple', price: '3.99' },
       { name: 'chilli', color: 'green', price: '7.99' },
     ],
-    OtherState: 'Some other value'
+    OtherState: 'Some other value',
+    showVeggies: false
   }
 
   switchHandler = (newColor) => {
@@ -40,11 +41,17 @@ class App extends Component {
     );
   }
 
+  toggleVeggieList = () => {
+    const doesShow = this.state.showVeggies
+    this.setState({ showVeggies: !doesShow })
+
+  }
+
   render() {
-    return (
-      <div className='App'>
-        <h1>Order Grocery App</h1>
-        <p>For additional questions please call 519-591-7448</p>
+
+    let veggiesList = null;
+    if (this.state.showVeggies) {
+      veggiesList = <div >
         <MyPerson color={this.state.veggies[0].color}
           name={this.state.veggies[0].name}
           price={this.state.veggies[0].price}
@@ -55,15 +62,23 @@ class App extends Component {
           name={this.state.veggies[1].name}
           price={this.state.veggies[1].price}
           click={this.switchHandler.bind(this, 'green')}
-//          changed={this.priceChangeHandler}
-          >
+        //          changed={this.priceChangeHandler}
+        >
         </MyPerson>
         <MyPerson color={this.state.veggies[2].color}
           name={this.state.veggies[2].name}
           price={this.state.veggies[2].price}
-          >
+        >
         </MyPerson>
+      </div>
+    }
+    return (
+      <div className='App'>
+        <h1>Order Grocery App</h1>
+        <p>For additional questions please call 519-591-7448</p>
+        {veggiesList}
         <button onClick={this.switchHandler.bind(this, 'orange')}>Change Veggie</button>
+        <button onClick={this.toggleVeggieList}>Toggle Veggies</button>
       </div>
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'This is another react app'));
