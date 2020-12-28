@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   render() {
-
+    //  Elegant way to use conditional statements
     let veggiesList = null;
     if (this.state.showVeggies) {
       veggiesList = <div >
@@ -71,6 +71,7 @@ class App extends Component {
         >
         </MyPerson>
       </div>
+    }
     return (
       <div className='App'>
         <h1>Order Grocery App</h1>
@@ -80,13 +81,44 @@ class App extends Component {
         <button onClick={this.toggleVeggieList}>Toggle Veggies</button>
       </div>
     );
+
+    /*    Using tartiary operator
+        return (
+          <div className='App'>
+            <h1>Order Grocery App</h1>
+            <p>For additional questions please call 519-591-7448</p>
+            {this.state.showVeggies === true ? <div >
+            <MyPerson color={this.state.veggies[0].color}
+              name={this.state.veggies[0].name}
+              price={this.state.veggies[0].price}
+              changed={this.priceChangeHandler}
+            >
+            </MyPerson>
+            <MyPerson color={this.state.veggies[1].color}
+              name={this.state.veggies[1].name}
+              price={this.state.veggies[1].price}
+              click={this.switchHandler.bind(this, 'green')}
+    //          changed={this.priceChangeHandler}
+              >
+            </MyPerson>
+            <MyPerson color={this.state.veggies[2].color}
+              name={this.state.veggies[2].name}
+              price={this.state.veggies[2].price}
+              >
+            </MyPerson>
+            </div> : null}
+            <button onClick={this.switchHandler.bind(this, 'orange')}>Change Veggie</button>
+            <button onClick={this.toggleVeggieList}>Toggle Veggies</button>
+          </div>
+        );
+    */
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'This is another react app'));
   }
 }
 
 /*
 //Function method
-
+ 
 const App = (props) => {
   const [veggieList, setVeggies] = useState({
     veggies: [
@@ -95,15 +127,15 @@ const App = (props) => {
       { name: 'chilli', color: 'green' },
     ]
   });
-
+ 
   const [otherState, setOtherState] = useState({ OtherState: 'Some other value' });
-
+ 
   const switchOtherState = () => {
     setOtherState(
       { OtherState: 'New velue for other state' }
     );
   }
-
+ 
   const switchVeggies = () => {
     setVeggies(
       {
@@ -115,7 +147,7 @@ const App = (props) => {
       }
     );
   }
-
+ 
   return (
     <div className='App'>
       <h1>Order Grocery App</h1>
