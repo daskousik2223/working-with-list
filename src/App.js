@@ -71,7 +71,6 @@ class App extends Component {
         >
         </MyPerson>
       </div>
-    }
     return (
       <div className='App'>
         <h1>Order Grocery App</h1>
