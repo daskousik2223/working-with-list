@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import React, { useState } from 'react';
 import './App.css';
-import MyPerson from './Veggies/Veggie.js';
+import MyVeggie from './Veggies/Veggie.js';
 
 
 //Class method 
@@ -48,34 +48,43 @@ class App extends Component {
   }
 
   render() {
+
     //  Elegant way to use conditional statements
     let veggiesList = null;
     if (this.state.showVeggies) {
       veggiesList = (
-      <div>
-        {this.state.veggies.map(veggie => {
-          return
-        })}
-        <MyPerson color={this.state.veggies[0].color}
-          name={this.state.veggies[0].name}
-          price={this.state.veggies[0].price}
-          changed={this.priceChangeHandler}
-        >
-        </MyPerson>
-        <MyPerson color={this.state.veggies[1].color}
-          name={this.state.veggies[1].name}
-          price={this.state.veggies[1].price}
-          click={this.switchHandler.bind(this, 'green')}
-        //          changed={this.priceChangeHandler}
-        >
-        </MyPerson>
-        <MyPerson color={this.state.veggies[2].color}
-          name={this.state.veggies[2].name}
-          price={this.state.veggies[2].price}
-        >
-        </MyPerson>
-      </div>
+        <div>
+          {this.state.veggies.map(veggie => {
+            return <MyVeggie
+              name={veggie.name}
+              color={veggie.color}
+              price={veggie.price} />
+          })}
+        </div>
+      );
     }
+
+    /*
+    //Non efficient way to create the elements
+    <MyPerson color={this.state.veggies[0].color}
+    name={this.state.veggies[0].name}
+    price={this.state.veggies[0].price}
+    changed={this.priceChangeHandler}
+  >
+  </MyPerson>
+  <MyPerson color={this.state.veggies[1].color}
+    name={this.state.veggies[1].name}
+    price={this.state.veggies[1].price}
+    click={this.switchHandler.bind(this, 'green')}
+  //          changed={this.priceChangeHandler}
+  >
+  </MyPerson>
+  <MyPerson color={this.state.veggies[2].color}
+    name={this.state.veggies[2].name}
+    price={this.state.veggies[2].price}
+  >
+  </MyPerson>
+  */
     return (
       <div className='App'>
         <h1>Order Grocery App</h1>
